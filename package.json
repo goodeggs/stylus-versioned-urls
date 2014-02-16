@@ -1,0 +1,25 @@
+{
+  "name": "stylus-versioned-urls",
+  "version": "0.0.0",
+  "description": "Stylus plugin to version urls in built css",
+  "author": "Good Eggs <open-source@goodeggs.com>",
+  "contributors": [
+    "Adam Hull <adam@hmlad.com>"
+  ],
+  "main": "versioned_urls.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodeggs/stylus-versioned-urls.git"
+  },
+  "homepage": "https://github.com/goodeggs/stylus-versioned-urls",
+  "bugs": "https://github.com/goodeggs/stylus-versioned-urls/issues",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.7.x",
+    "mocha": "~1.x.x"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
