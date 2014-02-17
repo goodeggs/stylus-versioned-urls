@@ -8,13 +8,13 @@ describe 'versioned-urls', ->
     manifest =
       '/img/beep.png': '/img/beep.123.png'
 
-    src = """
-    .robot
-      background-image url('/img/beep.png')
-    """
-
-    it 'transforms unversioned paths in source files to verisoned paths in output', (done) ->
-      stylus(src).use(versionedUrls manifest).render (err, output) ->
+    it 'transforms unversioned urls in source files to verisoned urls in output', (done) ->
+      stylus("""
+      .robot
+        background-image url('/img/beep.png')
+      """)
+      .use(versionedUrls manifest)
+      .render (err, output) ->
         return done(err) if err
         assert.equal output, """
         .robot {
@@ -22,3 +22,45 @@ describe 'versioned-urls', ->
         }\n
         """
         done()
+
+    it 'errors on unmapped urls', (done) ->
+      stylus("""
+      .robot
+        background-image url('/img/bop.png')
+      """)
+      .use(versionedUrls manifest)
+      .render (err, output) ->
+        assert(/No versioned path/.test err.message)
+        done()
+
+    it 'ignores data: urls', (done) ->
+      stylus("""
+      .robot
+        background-image url('data:/img/beep.png')
+      """)
+      .use(versionedUrls manifest)
+      .render (err, output) ->
+        return done(err) if err
+        assert.equal output, """
+        .robot {
+          background-image: url('data:/img/beep.png');
+        }\n
+        """
+        done()
+
+    it 'preserves querystrings from source but doesnt use them for versioned path lookup', (done) ->
+      stylus("""
+      .robot
+        background-image url('/img/beep.png?foo=bar')
+      """)
+      .use(versionedUrls manifest)
+      .render (err, output) ->
+        return done(err) if err
+        assert.equal output, """
+        .robot {
+          background-image: url('/img/beep.123.png?foo=bar');
+        }\n
+        """
+        done()
+
+
