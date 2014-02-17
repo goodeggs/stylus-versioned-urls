@@ -13,13 +13,14 @@
   },
   "homepage": "https://github.com/goodeggs/stylus-versioned-urls",
   "bugs": "https://github.com/goodeggs/stylus-versioned-urls/issues",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "coffee-script": ">=1.7.x",
-    "mocha": "~1.x.x"
+    "mocha": "~1.x.x",
+    "jshint": "~2.4.3",
+    "stylus": "~0.42.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "jshint *.js && mocha"
   }
 }

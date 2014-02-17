@@ -65,7 +65,9 @@ grunt.initConfig({
       ext: '.css'
       options: {
         use: [
-          stylusVersionedUrls(grunt.config('versionManifest'))
+          function() {
+            return stylusVersionedUrls(grunt.config('versionManifest'))
+          }
         ]
       }
     }
