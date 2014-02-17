@@ -1,3 +1,11 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
+deploy:
+  provider: npm
+  email: open-source@goodeggs.com
+  api_key:
+    secure: m5FO73LTCO8rNlk1rNWX4UTP2iKoZyo3DMZGWyp6eUkJFLfNGRxzm7uH4Ref309rX2NOMiTLINbQKrwHJZiNAxAPAvhQqQipSLHu5BIDyP6NXzojLV1xtg80KyVAlK/zmCo5LtlLArmstwOMs7KsVvIzxcowEMGKQBW4Hln73s8=
+  on:
+    tags: true
+    repo: goodeggs/stylus-versioned-urls
