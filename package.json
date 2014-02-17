@@ -1,6 +1,6 @@
 {
   "name": "stylus-versioned-urls",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Stylus plugin to version urls in built css",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
