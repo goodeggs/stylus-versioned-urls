@@ -40,9 +40,14 @@ grunt.loadNpmTasks('grunt-contrib-stylus')
 grunt.loadNpmTasks('grunt-contrib-copy')
 grunt.loadNpmTasks('grunt-assets-versioning')
 
-grunt.initConfig({
-  versionManifest: {},
+function digestManifest (path) {
+  return grunt.file.readJSON(path).reduce(function(manifest, file) {
+    manifest[file.path] = file.revved_path
+    return manifest
+  }, {})
+}
 
+grunt.initConfig({
   assets_versioning: {
     images: {
       expand: true,
@@ -66,7 +71,7 @@ grunt.initConfig({
       options: {
         use: [
           function() {
-            return stylusVersionedUrls(grunt.config('versionManifest'))
+            return stylusVersionedUrls(digestManifest('build/version_manifest.json'))
           }
         ]
       }
@@ -74,17 +79,8 @@ grunt.initConfig({
   }
 })
 
-grunt.registerTask('loadVersionManifest', function() {
-  var memoryManifest = grunt.config('versionManifest'),
-      fileManifest = grunt.file.readJSON('build/versionManifest')
-  fileManifest.forEach(function(file) {
-    memoryManifest[file.path] = file.revved_path
-  })
-})
-
 grunt.registerTask('default', [
   'assets_versioning',
-  'loadVersionManifest',
   'stylus'
 ])
 ```
