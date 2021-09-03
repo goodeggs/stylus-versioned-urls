@@ -16,11 +16,11 @@
   "dependencies": {},
   "devDependencies": {
     "coffee-script": ">=1.7.x",
-    "mocha": "~1.x.x",
     "jshint": "~2.4.3",
+    "mocha": "^9.1.1",
     "stylus": "~0.42.2"
   },
   "scripts": {
-    "test": "jshint *.js && mocha"
+    "test": "jshint *.js && mocha --extension coffee --require coffee-script/register --reporter spec"
   }
 }
