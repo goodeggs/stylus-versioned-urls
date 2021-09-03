@@ -5,7 +5,7 @@ deploy:
   provider: npm
   email: open-source@goodeggs.com
   api_key:
-    secure: m5FO73LTCO8rNlk1rNWX4UTP2iKoZyo3DMZGWyp6eUkJFLfNGRxzm7uH4Ref309rX2NOMiTLINbQKrwHJZiNAxAPAvhQqQipSLHu5BIDyP6NXzojLV1xtg80KyVAlK/zmCo5LtlLArmstwOMs7KsVvIzxcowEMGKQBW4Hln73s8=
+    secure: "lg5vbCDw1ezx96aHFcPe0Hs7vGpXx/H+fTfL4lGNuREJ45fEmTtHBE8pVDzLmRiI2BfaRnmpekCH5klucf80onpjDD7mxKSpy9WBQ3GeGyq2xboJgC6FFgbJC1IJPXcU4V704pmCm4kbLcttUfKcKr/oRfkNSjvuT+P5/12qBFg="
   on:
     tags: true
     repo: goodeggs/stylus-versioned-urls
